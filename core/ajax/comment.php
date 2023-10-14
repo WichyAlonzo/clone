@@ -246,7 +246,7 @@ if (isset($_POST['showPopup']) && !empty($_POST['showPopup'])) {
 						<?php if ($retweet_comment == false && $qoq == false) { ?>
 							<?php if ($tweet->img != null) { ?>
 								<p class="mt-post-tweet">
-									<img src="assets/images/tweets/<?php echo $tweet->img; ?>" alt="" class="img-post-retweet" />
+									<img src="assets/images/tweets/<?php echo $tweet->img; ?>" alt="" class="img-post-tweet" />
 								</p>
 							<?php } ?>
 						<?php } else { ?>
