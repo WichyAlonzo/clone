@@ -782,6 +782,7 @@ textarea {
 
 #mine p {
     margin: 0;
+    width: 95%;
 }
 
 .search-input {

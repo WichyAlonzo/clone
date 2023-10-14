@@ -14,11 +14,11 @@ if (isset($_POST['search'])) {
         echo ' <li >
         <div class="nav-right-down-inner">
         <div class="nav-right-down-left">
-            <a class="" href="'.BASE_URL.$user->username.'"><img class="mt-2 ml-1" src="assets/images/users/'.$user->img.'"></a>
+            <a class="" href="profile.php?username='.$user->username.'"><img class="mt-2 ml-1" src="assets/images/users/'.$user->img.'"></a>
         </div>
         <div class="nav-right-down-right">
             <div class="nav-right-down-right-headline">
-            <a class="" href="'.BASE_URL.$user->username.'">'. $user->name.'</a>
+            <a class="" href="profile.php?username='.$user->username.'">'. $user->name.'</a>
             <span class="d-block">@'. $user->username.'</span>
             </div>
             

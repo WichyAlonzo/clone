@@ -128,7 +128,7 @@ $notify_count = User::CountNotification($user_id);
                         <?php }
                         }
                         unset($_SESSION['errors_tweet']); ?>
-                        <div>
+                        <div class="mx-2">
 
                           <span class="bioCount" id="count">140</span>
                           <input id="tweet-input" type="submit" name="tweet" value="Publicar" class="submit">
@@ -146,9 +146,6 @@ $notify_count = User::CountNotification($user_id);
 
             </div>
           </div>
-          <!-- <div class="mt-icon-settings">
-              <img src="https://i.ibb.co/W5T9ycN/settings.png" alt="" />
-            </div> -->
         </div>
         <div class="box-fixed" id="box-fixed"></div>
 
@@ -163,25 +160,28 @@ $notify_count = User::CountNotification($user_id);
           <div class="input-group py-2 m-auto pr-5 position-relative">
 
             <i id="icon-search" class="fas fa-search tryy"></i>
-            <input type="text" class="form-control search-input" placeholder="Search Twitter">
+            <input type="text" class="form-control search-input" placeholder="Buscar @user">
             <div class="search-result">
 
 
             </div>
           </div>
         </div>
-
-
-
-
-
         <div class="box-share">
-          <p class="txt-share"><strong>Who to follow</strong></p>
+          <?php 
+            $numero_de_usuarios = count($who_users);
+            if($numero_de_usuarios === 0){
+              echo '<p class="txt-share"><strong>No hay usuarios nuevos :(</strong></p>';
+
+            }else{
+              echo '<p class="txt-share"><strong>Sigue tambien a</strong></p>';
+
+            }
+          ?>
           <?php
           foreach ($who_users as $user) {
-            //  $u = User::getData($user->user_id);
             $user_follow = Follow::isUserFollow($user_id, $user->id);
-          ?>
+            ?>
             <div class="grid-share">
               <a style="position: relative; z-index:5; color:black" href="<?php echo $user->username;  ?>">
                 <img src="assets/images/users/<?php echo $user->img; ?>" alt="" class="img-share" />
@@ -194,17 +194,17 @@ $notify_count = User::CountNotification($user_id);
                 </p>
                 <p class="username">@<?php echo $user->username; ?>
                   <?php if (Follow::FollowsYou($user->id, $user_id)) { ?>
-                    <span class="ml-1 follows-you">Follows You</span>
+                    <span class="ml-1 follows-you">Te sigue</span>
                 </p>
               <?php } ?></p>
               </div>
               <div>
                 <button class="follow-btn follow-btn-m 
-                      <?= $user_follow ? 'following' : 'follow' ?>" data-follow="<?php echo $user->id; ?>" data-user="<?php echo $user_id; ?>" data-profile="<?php echo $u_id; ?>" style="font-weight: 700;">
+                      <?= $user_follow ? 'Dejar de seguir' : 'Seguir' ?>" data-follow="<?php echo $user->id; ?>" data-user="<?php echo $user_id; ?>" data-profile="<?php echo $u_id; ?>" style="font-weight: 700;">
                   <?php if ($user_follow) { ?>
-                    Following
+                    Siguiendo
                   <?php } else {  ?>
-                    Follow
+                    Seguir
                   <?php }  ?>
                 </button>
               </div>

@@ -96,17 +96,17 @@ class Tweet extends User {
                    
             if ($seconds <= 60){
         
-            return "ahora";
+            return " · ahora";
         
             } else if ($minutes <= 60){
         
             if ($minutes == 1){
         
-                return "1 minuto";
+                return " · 1 minuto";
         
             } else {
         
-                return "$minutes" . " minutos";
+                return "· $minutes" . " minutos";
         
             }
         
@@ -114,11 +114,11 @@ class Tweet extends User {
         
             if ($hours == 1){
         
-                return "1 hr";
+                return " · 1 hr";
         
             } else {
         
-                return "$hours" . " horas";
+                return " · $hours" . " horas";
         
             }
         
@@ -126,11 +126,11 @@ class Tweet extends User {
         
             if ($days == 1){
         
-                return "ayer";
+                return " · ayer";
         
             } else {
         
-                return "$days" . " dias";
+                return " · $days" . " dias";
         
             }
         
@@ -138,11 +138,11 @@ class Tweet extends User {
         
             if ($weeks == 1){
         
-                return "1 semana";
+                return " · 1 semana";
         
             } else {
         
-                return "$weeks" . " semanas";
+                return " · $weeks" . " semanas";
         
             }
         
@@ -150,11 +150,11 @@ class Tweet extends User {
         
             if ($months == 1){
         
-                return "1 mes";
+                return " · 1 mes";
         
             } else {
         
-                return "$months mes";
+                return " · $months mes";
         
             }
         
@@ -162,11 +162,11 @@ class Tweet extends User {
             
             if ($years == 1){
         
-                return "1 año";
+                return " · 1 año";
         
             } else {
         
-                return "$years años";
+                return " · $years años";
         
             }
             }

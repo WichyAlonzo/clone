@@ -287,10 +287,10 @@ foreach ($tweets as $tweet) {
           </div>
 
           <div class="grid-box-reaction">
-            <div class="hover-reaction hover-reaction-comment">
+            <!-- <div class="hover-reaction hover-reaction-comment">
 
               <i class="fas fa-ellipsis-h mt-icon-reaction"></i>
-            </div>
+            </div> -->
             <div class="mt-counter">
               <p></p>
             </div>
