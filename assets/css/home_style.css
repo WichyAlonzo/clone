@@ -25,6 +25,25 @@ body {
 }
 
 
+/* Comment Box */
+
+.comment_box {
+    display: flex;
+}
+
+.row_comment {
+    margin-right: 0!important;
+}
+
+svg {
+    fill: #001c54!important;
+}
+
+.fw-bolder {
+    font-weight: 700;
+}
+
+
 /* SIDEBAR */
 
 #mine .wrapper-left {
@@ -72,6 +91,8 @@ body {
 #mine .bg-active {
     color: #1da1f2 !important;
     font-weight: bold !important;
+    border-radius: 15px;
+    background: rgb(0 81 255 / 8%);
 }
 
 
@@ -428,7 +449,6 @@ body {
 }
 
 #mine .hover-reaction-retweet:hover {
-    /* background-color: rgb(0 81 255 / 8%); */
     color: rgb(22, 207, 22);
     display: flex;
     align-items: center;
@@ -651,7 +671,7 @@ textarea {
 #whathappen .submit {
     border: none;
     border-radius: 20px;
-    background-color: rgb(0, 172, 237);
+    background-color: #001c54!important;
     margin-top: 12px;
     margin-right: 5px;
     padding: 6px 15px;
@@ -665,14 +685,14 @@ textarea {
 }
 
 #whathappen .bioCount {
-    color: rgb(0, 172, 237);
+    color: #001c54!important;
     font-size: 14px;
     font-weight: 600;
     margin-right: 7px;
 }
 
 #whathappen i {
-    color: rgb(0, 172, 237);
+    color: #001c54!important;
     font-size: 25px;
 }
 
@@ -689,7 +709,7 @@ textarea {
     grid-column-end: 2;
     background-color: transparent;
     padding: 7px;
-    border-radius: 50%;
+    /* border-radius: 50%; */
 }
 
 #whathappen .item1-pair:hover {
@@ -698,7 +718,7 @@ textarea {
 }
 
 #whathappen .item1-pair {
-    margin-top: 20px;
+    margin-top: 12px;
     grid-row: 1/2;
 }
 
@@ -787,8 +807,10 @@ textarea {
 
 .search-input {
     background-color: #E9ECEF !important;
-    border-radius: 20px !important;
     padding-left: 40px;
+    border-radius: 11px!important;
+    color: grey;
+    font-weight: 600;
 }
 
 .search-input:focus {
@@ -957,16 +979,14 @@ textarea {
 }
 
 .retweet-popup-body-wrap {
-    width: 580px;
-    height: auto;
+    width: 90%;
+    height: 90%;
     margin: 0px auto;
-    top: 13%;
+    top: 5%;
     position: relative;
     background: #fff;
-    border-radius: 5px;
     border: 1px solid #9E9E9E;
     overflow: auto;
-    max-height: 600px;
 }
 
 .popup-users {
@@ -1023,7 +1043,7 @@ textarea {
 }
 
 .retweet-popup-input {
-    background: rgba(127, 196, 0, 0.18);
+    /* background: rgba(127, 196, 0, 0.18); */
     padding: 10px;
 }
 
@@ -1090,7 +1110,7 @@ textarea {
 }
 
 .retweet-popup-footer-right {
-    float: right;
+    /* float: right; */
 }
 
 .retweet-popup-footer-right button[type="submit"] {
@@ -1102,6 +1122,7 @@ textarea {
     margin: 10px;
     border-radius: 5px;
     cursor: pointer;
+    width: 100%;
 }
 
 .retweet-popup-footer-right button[type="submit"]:hover {

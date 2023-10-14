@@ -220,150 +220,253 @@ if (isset($_POST['showPopup']) && !empty($_POST['showPopup'])) {
 	<div class="retweet-popup">
 		<div class="wrap5">
 			<div class="retweet-popup-body-wrap">
-				<div class="retweet-popup-heading pt-3">
-					<h3>Comentar</h3>
-					<span><button class="close-retweet-popup"><i class="fa fa-times" aria-hidden="true"></i></button></span>
-				</div>
-				<div class="grid-tweet py-2">
-					<div>
-						<img src="assets/images/users/<?php echo $user_tweet->img; ?>" alt="" class="img-user-tweet" />
+				<div class="row row_comment">
+					<div class="col-8">
+						<img class="card-img-top" src="assets/images/tweets/tweet-6529f7f6e351f.png">
 					</div>
-
-					<div>
-						<p>
-							<strong> <?php echo $user_tweet->name ?> </strong>
-							<span class="username-twitter">@<?php echo $user_tweet->username ?> </span>
-							<span class="username-twitter"><?php echo $timeAgo ?></span>
-						</p>
-						<p>
-							<?php
-							// check if it's quote or normal tweet
-							if ($retweet_comment || $qoq)
-								echo  Tweet::getTweetLinks($qoute);
-							else echo  Tweet::getTweetLinks($tweet->status); ?>
-						</p>
-
-						<?php if ($retweet_comment == false && $qoq == false) { ?>
-							<?php if ($tweet->img != null) { ?>
-								<p class="mt-post-tweet">
-									<img src="assets/images/tweets/<?php echo $tweet->img; ?>" alt="" class="img-post-tweet" />
-								</p>
-							<?php } ?>
-						<?php } else { ?>
-
-							<div class="mt-post-tweet comment-post">
-
-								<div class="grid-tweet py-3  ">
-									<div>
-										<img src="assets/images/users/<?php echo $user_inner_tweet->img; ?>" alt="" class="img-user-tweet" />
+					<div class="col-4 p-3">
+						<div>
+							<div class="comment_box">
+								<div>
+									<img src="assets/images/users/<?php echo $user_tweet->img; ?>" alt="" class="img-user-tweet" />
+								</div>
+								<div>
+									<p style="width:100%!important;">
+										<strong> <?php echo $user_tweet->name ?> </strong><br>
+										<span class="username-twitter">@<?php echo $user_tweet->username ?> </span>
+										<span class="username-twitter"><?php echo $timeAgo ?></span>
+									</p>
+								</div>
+							</div>
+							<div class="comentarios">
+								<div>
+									<img src="assets/images/users/<?php echo $user_tweet->img; ?>" alt="" class="img-user-tweet" />
+								</div>
+								<div>
+									<p style="width:100%!important;">
+										<strong> <?php echo $user_tweet->name ?> </strong><br>
+										<span class="username-twitter">@<?php echo $user_tweet->username ?> </span>
+										<span class="username-twitter"><?php echo $timeAgo ?></span>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="mt-2">
+							<div class="retweet-popup-input">
+								<div class="retweet-popup-input-inner">
+									<input class="retweet-msg" type="text" placeholder="Agrega un comentantario..." />
+									<div class="retweet-popup-footer-right">
+										<button class="comment-it" data-tweet="<?php echo $tweet_id; ?>" data-user="<?php echo $user_id; ?>" data-tmp="<?php echo $retweet_comment; ?>" data-qoq="<?php echo $qoq; ?>" type="submit"><i class="fas fa-pencil-alt" aria-hidden="true"></i>Reply</button>
 									</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- <div class="grid-tweet py-2">
+						<div>
+							<img src="assets/images/users/<?php echo $user_tweet->img; ?>" alt="" class="img-user-tweet" />
+						</div>
 
-									<div>
-										<p>
-											<strong> <?php echo $user_inner_tweet->name ?> </strong>
-											<span class="username-twitter">@<?php echo $user_inner_tweet->username ?> </span>
-											<span class="username-twitter"><?php echo $timeAgo_inner ?></span>
-										</p>
-										<p>
+						<div>
+							<p>
+								<strong> <?php echo $user_tweet->name ?> </strong>
+								<span class="username-twitter">@<?php echo $user_tweet->username ?> </span>
+								<span class="username-twitter"><?php echo $timeAgo ?></span>
+							</p>
+							<p>
+								<?php
+								// check if it's quote or normal tweet
+								if ($retweet_comment || $qoq)
+									echo  Tweet::getTweetLinks($qoute);
+								else echo  Tweet::getTweetLinks($tweet->status); ?>
+							</p>
+
+							<?php if ($retweet_comment == false && $qoq == false) { ?>
+								<?php if ($tweet->img != null) { ?>
+									<p class="mt-post-tweet">
+										<img src="assets/images/tweets/<?php echo $tweet->img; ?>" alt="" class="img-post-tweet" />
+									</p>
+								<?php } ?>
+							<?php } else { ?>
+
+								<div class="mt-post-tweet comment-post">
+
+									<div class="grid-tweet py-3  ">
+										<div>
+											<img src="assets/images/users/<?php echo $user_inner_tweet->img; ?>" alt="" class="img-user-tweet" />
+										</div>
+
+										<div>
+											<p>
+												<strong> <?php echo $user_inner_tweet->name ?> </strong>
+												<span class="username-twitter">@<?php echo $user_inner_tweet->username ?> </span>
+												<span class="username-twitter"><?php echo $timeAgo_inner ?></span>
+											</p>
+											<p>
+												<?php
+												if ($qoq)
+													echo $inner_qoute;
+												else  echo  Tweet::getTweetLinks($tweet_inner->status); ?>
+											</p>
 											<?php
-											if ($qoq)
-												echo $inner_qoute;
-											else  echo  Tweet::getTweetLinks($tweet_inner->status); ?>
-										</p>
-										<?php
-										if ($qoq == false) {
-											if ($tweet_inner->img != null) { ?>
-												<p class="mt-post-tweet">
-													<img src="assets/images/tweets/<?php echo $tweet_inner->img; ?>" alt="" class="img-post-retweet" />
-												</p>
-										<?php }
-										} ?>
+											if ($qoq == false) {
+												if ($tweet_inner->img != null) { ?>
+													<p class="mt-post-tweet">
+														<img src="assets/images/tweets/<?php echo $tweet_inner->img; ?>" alt="" class="img-post-retweet" />
+													</p>
+											<?php }
+											} ?>
 
+										</div>
 									</div>
+
+
 								</div>
 
-
-							</div>
-
-						<?php } ?>
+							<?php } ?>
+						</div>
 					</div>
+					<div class="grid-tweet py-2">
+						<div>
+							<img src="assets/images/users/<?php echo $user_tweet->img; ?>" alt="" class="img-user-tweet" />
+						</div>
+
+						<div>
+							<p>
+								<strong> <?php echo $user_tweet->name ?> </strong>
+								<span class="username-twitter">@<?php echo $user_tweet->username ?> </span>
+								<span class="username-twitter"><?php echo $timeAgo ?></span>
+							</p>
+							<p>
+								<?php
+								// check if it's quote or normal tweet
+								if ($retweet_comment || $qoq)
+									echo  Tweet::getTweetLinks($qoute);
+								else echo  Tweet::getTweetLinks($tweet->status); ?>
+							</p>
+
+							<?php if ($retweet_comment == false && $qoq == false) { ?>
+								<?php if ($tweet->img != null) { ?>
+									<p class="mt-post-tweet">
+										<img src="assets/images/tweets/<?php echo $tweet->img; ?>" alt="" class="img-post-tweet" />
+									</p>
+								<?php } ?>
+							<?php } else { ?>
+
+								<div class="mt-post-tweet comment-post">
+
+									<div class="grid-tweet py-3  ">
+										<div>
+											<img src="assets/images/users/<?php echo $user_inner_tweet->img; ?>" alt="" class="img-user-tweet" />
+										</div>
+
+										<div>
+											<p>
+												<strong> <?php echo $user_inner_tweet->name ?> </strong>
+												<span class="username-twitter">@<?php echo $user_inner_tweet->username ?> </span>
+												<span class="username-twitter"><?php echo $timeAgo_inner ?></span>
+											</p>
+											<p>
+												<?php
+												if ($qoq)
+													echo $inner_qoute;
+												else  echo  Tweet::getTweetLinks($tweet_inner->status); ?>
+											</p>
+											<?php
+											if ($qoq == false) {
+												if ($tweet_inner->img != null) { ?>
+													<p class="mt-post-tweet">
+														<img src="assets/images/tweets/<?php echo $tweet_inner->img; ?>" alt="" class="img-post-retweet" />
+													</p>
+											<?php }
+											} ?>
+
+										</div>
+									</div>
+
+
+								</div>
+
+							<?php } ?>
+						</div>
+					</div> -->
+					<!-- <div class="retweet-popup-input">
+						<div class="retweet-popup-input-inner">
+							<input class="retweet-msg" type="text" placeholder="Add Comment.." />
+						</div>
+					</div>
+					<div class="retweet-popup-footer">
+						<div class="retweet-popup-footer-right">
+							<button class="comment-it" data-tweet="<?php echo $tweet_id; ?>" data-user="<?php echo $user_id; ?>" data-tmp="<?php echo $retweet_comment; ?>" data-qoq="<?php echo $qoq; ?>" type="submit"><i class="fas fa-pencil-alt" aria-hidden="true"></i>Reply</button>
+						</div>
+					</div> -->
+
+
 				</div>
-				<div class="retweet-popup-input">
-					<div class="retweet-popup-input-inner">
-						<input class="retweet-msg" type="text" placeholder="Add Comment.." />
-					</div>
-				</div>
-				<div class="retweet-popup-footer">
-					<div class="retweet-popup-footer-right">
-						<button class="comment-it" data-tweet="<?php echo $tweet_id; ?>" data-user="<?php echo $user_id; ?>" data-tmp="<?php echo $retweet_comment; ?>" data-qoq="<?php echo $qoq; ?>" type="submit"><i class="fas fa-pencil-alt" aria-hidden="true"></i>Reply</button>
-					</div>
-				</div>
+
+				<!-- Post Comment PopUp ends-->
+
+			<?php }
+
+		// Repling to comment popup
+
+		if (isset($_POST['showReply']) && !empty($_POST['showReply'])) {
+			$comment_id   = $_POST['showReply'];
+			$user       = User::getData($user_id);
 
 
-			</div>
+			$tweet      = Tweet::getComment($comment_id);
+			$user_tweet = User::getData($tweet->user_id);
+			$timeAgo = Tweet::getTimeAgo($tweet->time);
 
-			<!-- Post Comment PopUp ends-->
-
-		<?php }
-
-	// Repling to comment popup
-
-	if (isset($_POST['showReply']) && !empty($_POST['showReply'])) {
-		$comment_id   = $_POST['showReply'];
-		$user       = User::getData($user_id);
-
-
-		$tweet      = Tweet::getComment($comment_id);
-		$user_tweet = User::getData($tweet->user_id);
-		$timeAgo = Tweet::getTimeAgo($tweet->time);
-
-		?>
-			<div class="retweet-popup">
-				<div class="wrap5">
-					<div class="retweet-popup-body-wrap">
-						<div class="retweet-popup-heading">
-							<h3>Reply Comment</h3>
-							<span><button class="close-retweet-popup"><i class="fa fa-times" aria-hidden="true"></i></button></span>
-						</div>
-						<div class="retweet-popup-input">
-							<div class="retweet-popup-input-inner">
-								<input class="retweet-msg" type="text" placeholder="Add Reply.." />
+			?>
+				<div class="retweet-popup">
+					<div class="wrap5">
+						<div class="retweet-popup-body-wrap">
+							<div class="retweet-popup-heading">
+								<h3>Reply Comment</h3>
+								<span><button class="close-retweet-popup"><i class="fa fa-times" aria-hidden="true"></i></button></span>
 							</div>
-						</div>
-
-
-						<div class="grid-tweet py-2">
-							<div>
-								<img src="assets/images/users/<?php echo $user_tweet->img; ?>" alt="" class="img-user-tweet" />
+							<div class="retweet-popup-input">
+								<div class="retweet-popup-input-inner">
+									<input class="retweet-msg" type="text" placeholder="Add Reply.." />
+								</div>
 							</div>
 
-							<div>
-								<p>
-									<strong> <?php echo $user_tweet->name ?> </strong>
-									<span class="username-twitter">@<?php echo $user_tweet->username ?> </span>
-									<span class="username-twitter"><?php echo $timeAgo ?></span>
-								</p>
-								<p>
-									<?php
-									// check if it's quote or normal tweet
-									echo  Tweet::getTweetLinks($tweet->comment); ?>
-								</p>
 
+							<div class="grid-tweet py-2">
+								<div>
+									<img src="assets/images/users/<?php echo $user_tweet->img; ?>" alt="" class="img-user-tweet" />
+								</div>
+
+								<div>
+									<p>
+										<strong> <?php echo $user_tweet->name ?> </strong>
+										<span class="username-twitter">@<?php echo $user_tweet->username ?> </span>
+										<span class="username-twitter"><?php echo $timeAgo ?></span>
+									</p>
+									<p>
+										<?php
+										// check if it's quote or normal tweet
+										echo  Tweet::getTweetLinks($tweet->comment); ?>
+									</p>
+
+								</div>
 							</div>
+
+
+
+
+
+							<div class="retweet-popup-footer">
+								<div class="retweet-popup-footer-right">
+									<button class="reply-it" data-tweet="<?php echo $comment_id; ?>" data-user="<?php echo $user_id; ?>" type="submit"><i class="fas fa-pencil-alt" aria-hidden="true"></i>Reply</button>
+								</div>
+							</div>
+
+
 						</div>
 
-
-
-
-
-						<div class="retweet-popup-footer">
-							<div class="retweet-popup-footer-right">
-								<button class="reply-it" data-tweet="<?php echo $comment_id; ?>" data-user="<?php echo $user_id; ?>" type="submit"><i class="fas fa-pencil-alt" aria-hidden="true"></i>Reply</button>
-							</div>
-						</div>
-
-
-					</div>
-
-					<!-- Retweet PopUp ends-->
-				<?php } ?>
+						<!-- Retweet PopUp ends-->
+					<?php } ?>
